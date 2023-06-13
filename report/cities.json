@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Berlin",
+    "country": "Germany",
+    "year": "2021"
+  },
+  {
+    "name": "Paris",
+    "country": "France",
+    "year": "2022"
+  },
+  {
+    "name": "Rome",
+    "country": "Italy",
+    "year": "2023"
+  }
+]

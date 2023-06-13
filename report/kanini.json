@@ -1,0 +1,45 @@
+[
+  {
+    "Asset": "Bran-foot - KDJ 186S",
+    "Odometer": 19000,
+    "Distance" : 651,
+    "Power_train_coasting": 14.4,
+    "Idling" : 0.2,
+    "Speeding" : 3.98,
+    "Harsh_brake_applications" : 7.83,
+    "Harsh_acceleration_applications" : 7.21,
+    "Fuel_consumption" : 3.57,
+    "Odometer_delta" : 1.04,
+    "Distance_delta" : 0.489,
+    "Power_train_coasting_delta" : 0.842,
+    "Idling_delta" : 0.01484,
+    "Speeding_delta" : 1.505,
+    "Harsh_brake_applications_delta" : 0.76,
+    "Harsh_acceleration_applications_delta" : 0.8,
+    "Fuel_consumption_delta": 1.6,
+    "Eco_Driver_Support": 74.5,
+    "Eco_Driver_Support_delta": 0.8
+  },
+  {
+    "Asset": "Bran-foot - KDH 186",
+    "Odometer": 19000,
+    "Distance" : 651,
+    "Power_train_coasting": 14.4,
+    "Idling" : 0.00238117,
+    "Speeding" : 3.98,
+    "Harsh_brake_applications" : 7.83,
+    "Harsh_acceleration_applications" : 7.21,
+    "Fuel_consumption" : 3.57,
+    "Odometer_delta" : 1.04,
+    "Distance_delta" : 0.489,
+    "Power_train_coasting_delta" : 0.842,
+    "Idling_delta" : 0.01484,
+    "Speeding_delta" : 1.505,
+    "Harsh_brake_applications_delta" : 0.76,
+    "Harsh_acceleration_applications_delta" : 0.8,
+    "Fuel_consumption_delta": 1.6,
+    "Eco_Driver_Support": 74.5,
+    "Eco_Driver_Support_delta": 0.8
+  }
+
+]

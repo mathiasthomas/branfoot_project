@@ -1,0 +1,71 @@
+{#    #OLD FORM START#}
+        <form mb-auto>
+  <div class="form-row">
+    <div class="col-3">
+            <label for="field1">Previous Start Date:</label>
+      <input type="text"  name="prevs" class="form-control datetimepicker-input" id="field1" data-toggle="datetimepicker" data-target="#field1" placeholder="Select date and time">
+    </div>
+    <div class="col-3">
+     <label for="field2">Previous End Date:</label>
+                <input type="text" name="preve" class="form-control datetimepicker-input" id="field2" data-toggle="datetimepicker" data-target="#field2" placeholder="Select date and time">
+    </div>
+    <div class="col-3">
+        <label for="field3">Currents Start Date:</label>
+                <input type="text" name="currs" class="form-control datetimepicker-input" id="field3" data-toggle="datetimepicker" data-target="#field3" placeholder="Select date and time">
+    </div>
+      <div class="col-3">
+       <label for="field4">Current Start Date:</label>
+                <input type="text" name="curre" class="form-control datetimepicker-input" id="field4" data-toggle="datetimepicker" data-target="#field4" placeholder="Select date and time">
+    </div>
+      <div class="col">
+          <button class="btn btn-success" method ='post'>Submit</button>
+      </div>
+  </div>
+</form>
+{#    //#}
+{##}
+{#    <div class="row">#}
+{#    <div class="col"> <form>#}
+{##}
+{#<div class="container">#}
+{#        <div class="col-md-6">#}
+{#            <h1>Select Date</h1>#}
+{#        <form>#}
+{#            <div class="form-group">#}
+{#                <label for="field1">Previous Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field1" data-toggle="datetimepicker" data-target="#field1" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field2">Previous End Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field2" data-toggle="datetimepicker" data-target="#field2" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field3">Currents Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field3" data-toggle="datetimepicker" data-target="#field3" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field4">Current Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field4" data-toggle="datetimepicker" data-target="#field4" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <button type="submit" class="btn btn-primary">Submit</button>#}
+{#        </form>#}
+{#        </div>#}
+{#    </div>#}
+{#//#}
+    <!-- Include jQuery and Moment.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Include Tempus Dominus Bootstrap 4 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Initialize datetimepicker -->
+    <script>
+        $(function () {
+            $('.datetimepicker-input').datetimepicker();
+        });
+    </script>
+    </div>
+    </div>
+{##END NEW FORM#}

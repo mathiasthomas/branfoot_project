@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{#<h1>City List</h1>#}
+{#<ul>#}
+{#    {% for city in cities %}#}
+{#        <li>{{ city.Asset }} - {{ city.Distance }} ({{ city.Odometer }})</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#    //#}
+
+{#    #OLD FORM START#}
+        <form mb-auto>
+  <div class="form-row">
+    <div class="col-3">
+            <label for="field1">Previous Start Date:</label>
+      <input type="text"  name="prevs" class="form-control datetimepicker-input" id="field1" data-toggle="datetimepicker" data-target="#field1" placeholder="Select date and time">
+    </div>
+    <div class="col-3">
+     <label for="field2">Previous End Date:</label>
+                <input type="text" name="preve" class="form-control datetimepicker-input" id="field2" data-toggle="datetimepicker" data-target="#field2" placeholder="Select date and time">
+    </div>
+    <div class="col-3">
+        <label for="field3">Currents Start Date:</label>
+                <input type="text" name="currs" class="form-control datetimepicker-input" id="field3" data-toggle="datetimepicker" data-target="#field3" placeholder="Select date and time">
+    </div>
+      <div class="col-3">
+       <label for="field4">Current Start Date:</label>
+                <input type="text" name="curre" class="form-control datetimepicker-input" id="field4" data-toggle="datetimepicker" data-target="#field4" placeholder="Select date and time">
+    </div>
+      <div class="col">
+          <button class="btn btn-success" method ='post'>Submit</button>
+      </div>
+  </div>
+</form>
+
+
+{#    //#}
+{##}
+{#    <div class="row">#}
+{#    <div class="col"> <form>#}
+{##}
+{#<div class="container">#}
+{#        <div class="col-md-6">#}
+{#            <h1>Select Date</h1>#}
+{#        <form>#}
+{#            <div class="form-group">#}
+{#                <label for="field1">Previous Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field1" data-toggle="datetimepicker" data-target="#field1" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field2">Previous End Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field2" data-toggle="datetimepicker" data-target="#field2" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field3">Currents Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field3" data-toggle="datetimepicker" data-target="#field3" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="field4">Current Start Date:</label>#}
+{#                <input type="text" class="form-control datetimepicker-input" id="field4" data-toggle="datetimepicker" data-target="#field4" placeholder="Select date and time">#}
+{#            </div>#}
+{#            <button type="submit" class="btn btn-primary">Submit</button>#}
+{#        </form>#}
+{#        </div>#}
+{#    </div>#}
+{#//#}
+    <!-- Include jQuery and Moment.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Include Tempus Dominus Bootstrap 4 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Initialize datetimepicker -->
+    <script>
+        $(function () {
+            $('.datetimepicker-input').datetimepicker();
+        });
+    </script>
+    </div>
+    </div>
+{##END NEW FORM#}
+
+        <h1>Asset Data</h1>
+        <div class="container-fluid">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Asset</th>
+                    <th>Distance (Km)</th>
+                    <th>Odometer (Km)</th>
+                    <th>Power train coasting(%)</th>
+                    <th>Idling(%)</th>
+{#                    <th>Idling(%)delta</th>#}
+                    <th>Speeding(%)</th>
+{#                    <th>Speeding(%)delta</th>#}
+                    <th>Harsh brake applications(#/100 km)</th>
+                    <th>Harsh acceleration applications(#/100 km)</th>
+                    <th>Fuel consumption (km/l)</th>
+{#                    <th>Odometer(km)delta</th>#}
+{#                    <th>Distance(km)delta</th>#}
+{#                    <th>Power train coasting(%)delta</th>#}
+{#                    <th>Harsh brake applications(#/100 km)delta</th>#}
+{#                    <th>Harsh acceleration applications(#/100 km)delta</th>#}
+{#                    <th>Fuel consumption (km/l)delta</th>#}
+                    <th>Eco Driver Support</th>
+{#                    <th>Eco Driver Support_delta</th>#}
+                </tr>
+            </thead>
+            <tbody>
+                {% for city in cities %}
+                <tr>
+                    <td>{{ city.Asset }}</td>
+                    <td>{{ city.Distance }}
+                    {% if city.Distance_delta > 1 %}
+                        <i class="fas fa-arrow-up text-success"></i>
+                        {% else %}
+                        <i class="fas fa-arrow-down text-danger"></i>
+                        {% endif %}
+                    </td>
+                    <td>{{ city.Odometer }}
+                    {% if city.Odometer_delta > 1 %}
+                        <i class="fas fa-arrow-up text-success"></i>
+                        {% else %}
+                          <i class="fas fa-arrow-down text-danger"></i>
+                        {% endif %}
+                    </td>
+                <td>{{ city.Power_train_coasting }}
+                {% if city.Power_train_coasting_delta %}
+                     <i class="fas fa-arrow-down text-danger"></i>
+                    {% else %}
+                    <i class="fas fa-arrow-up text-success"></i>
+                    {% endif %}
+                </td>
+                <td>{{ city.Idling }}
+                {% if city.Idling_delta > 1 %}
+                    <i class="fas fa-arrow-down text-danger"></i>
+                    {% else %}
+                        <i class="fas fa-arrow-up text-success"></i>
+                    {% endif %}
+                </td>
+{#                    <td>{{ city.Idling_delta }}</td>#}
+
+{#                <td>#}
+{#                    {% if city.Idling_delta > 1 %}#}
+{#                <i class="fas fa-arrow-down text-danger"></i>#}
+{#                {% else %}#}
+{#                <i class="fas fa-arrow-up text-success"></i>#}
+{#                {% endif %}#}
+{#                </td>#}
+                <td>{{ city.Speeding }}
+                {% if city.Speeding_delta > 1 %}
+                 <i class="fas fa-arrow-down text-danger"></i>
+                {% else %}
+                 <i class="fas fa-arrow-up text-success"></i>
+                {% endif %}
+                </td>
+{#                 <td>{{ city.Speeding_delta }}</td>#}
+{#                <td>#}
+{#                    {% if city.Speeding_delta > 1 %}#}
+{#                 <i class="fas fa-arrow-down text-danger"></i>#}
+{#                {% else %}#}
+{#                 <i class="fas fa-arrow-up text-success"></i>#}
+{#                {% endif %}#}
+{#                </td>#}
+                <td>{{ city.Harsh_brake_applications }}
+                {% if city.Harsh_brake_applications_delta > 1 %}
+                    <i class="fas fa-arrow-down text-danger"></i>
+                    {% else %}
+                     <i class="fas fa-arrow-up text-success"></i>
+                    {% endif %}
+                </td>
+                <td>{{ city.Harsh_acceleration_applications }}
+                {% if city.Harsh_acceleration_applications_delta > 1 %}
+                    <i class="fas fa-arrow-down text-danger"></i>
+                    {% else %}
+                    <i class="fas fa-arrow-up text-success"></i>
+                    {% endif %}
+                </td>
+                <td>{{ city.Fuel_consumption }}
+                {% if city.Fuel_consumption_delta > 1 %}
+                    <i class="fas fa-arrow-down text-danger"></i>
+                    {% else %}
+                    <i class="fas fa-arrow-up text-success"></i>
+                    {% endif %}
+                </td>
+{#                <td>{{ city.Odometer_delta }}</td>#}
+{#                <td>{{ city.Distance_delta }}</td>#}
+{#                <td>{{ city.Power_train_coasting_delta }}</td>#}
+{#                <td>{{ city.Harsh_brake_applications_delta }}</td>#}
+{#                <td>{{ city.Harsh_acceleration_applications_delta }}</td>#}
+{#                <td>{{ city.Fuel_consumption_delta }}</td>#}
+                <td>{{ city.Eco_Driver_Support }}
+                {% if city.Eco_Driver_Support_delta > 1 %}
+{#                <td>{{ city.Eco_Driver_Support_delta }}</td>#}
+                     <i class="fas fa-arrow-up text-success"></i>
+                    {% else %}
+                    <i class="fas fa-arrow-down text-danger"></i>
+                    {% endif %}
+                </td>
+{#                <td>#}
+{#                    {% if city.Eco_Driver_Support_delta > 1 %}#}
+{#                <td>{{ city.Eco_Driver_Support_delta }}</td>#}
+{#                     <i class="fas fa-arrow-up text-success"></i>#}
+{#                    {% else %}#}
+{#                    <i class="fas fa-arrow-down text-danger"></i>#}
+{#                    {% endif %}#}
+{#                </td>#}
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+
+
+ {% endblock %}
